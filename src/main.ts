@@ -3,19 +3,19 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 var STORAGE_KEY = 'todos-vuejs-demo'
-var todoStorage = <any>{
+var todoStorage = {
   fetch: () => {
-    var todos = JSON.parse(
+    const todos:any[] = JSON.parse(
       localStorage.getItem(STORAGE_KEY) || '[]'
     )
-    todos.forEach((element: { id: any } , index: any) => {
+    todos.forEach((element: { id: number } , index: number) => {
       element.id = index
     });
     todoStorage.uid = todos.length
-    return todos
+    return todosx
   },
   save:(todos: any) => {
     localStorage.setItem(STORAGE_KEY , JSON.stringify(todos))
